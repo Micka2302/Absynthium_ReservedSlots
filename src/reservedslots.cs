@@ -124,6 +124,7 @@ public class ReservedSlots : BasePlugin
                     }
                     else
                     {
+                        LogDeniedConnection(player, clients, limit);
                         AddTimer(0.1f, () => OnTimedKick(player));
                     }
                 }
@@ -148,6 +149,7 @@ public class ReservedSlots : BasePlugin
                     }
                     else
                     {
+                        LogDeniedConnection(player, clients, limit);
                         AddTimer(0.1f, () => OnTimedKick(player));
                     }
                 }
@@ -290,6 +292,50 @@ public class ReservedSlots : BasePlugin
 
     private static bool HasReservedPermission(CCSPlayerController player) =>
         PlayerHasPermissions(player, "@css/vip") || PlayerHasPermissions(player, "@css/ban");
+
+    private void LogDeniedConnection(CCSPlayerController player, int clients, int limit)
+    {
+        bool hasVip = PlayerHasPermissions(player, "@css/vip");
+        bool hasBan = PlayerHasPermissions(player, "@css/ban");
+        var adminData = GetPlayerAdminData(player);
+        string flagsText = "none";
+
+        if (adminData != null)
+        {
+            var flags = adminData.GetAllFlags();
+            if (flags.Count > 0)
+            {
+                flagsText = string.Join(", ", flags);
+            }
+        }
+
+        ulong steamIdValue = player.AuthorizedSteamID?.SteamId64 ?? player.SteamID;
+        string steamId = steamIdValue.ToString();
+        string playerName = string.IsNullOrWhiteSpace(player.PlayerName) ? "Unknown" : player.PlayerName;
+
+        Logger.LogInformation(
+            "ReservedSlots: denied connection for {PlayerName} [{SteamId}] (clients {Clients}/{Limit}); permissions vip={HasVip} ban={HasBan}; flags: {Flags}",
+            playerName,
+            steamId,
+            clients,
+            limit,
+            hasVip,
+            hasBan,
+            flagsText);
+
+        string chatMessage =
+            $"[ReservedSlots] Connexion refusée pour {playerName} [{steamId}] (clients {clients}/{limit}) - permissions vip={hasVip} ban={hasBan} - Flags: {flagsText}";
+
+        foreach (var rootPlayer in Utilities.GetPlayers())
+        {
+            if (!PlayerHasPermissions(rootPlayer, "@css/root"))
+            {
+                continue;
+            }
+
+            rootPlayer.PrintToChat(chatMessage);
+        }
+    }
 
     public static int GetClientCount()
     {
