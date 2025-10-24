@@ -1,0 +1,12 @@
+C:\Users\micka\Documents\GitHub\BuildOutput\reservedslots\reservedslots.deps.json
+C:\Users\micka\Documents\GitHub\BuildOutput\reservedslots\reservedslots.dll
+C:\Users\micka\Documents\GitHub\BuildOutput\reservedslots\reservedslots.pdb
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.csproj.AssemblyReference.cache
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.AssemblyInfoInputs.cache
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.AssemblyInfo.cs
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.csproj.CoreCompileInputs.cache
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.dll
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\refint\reservedslots.dll
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.pdb
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\ref\reservedslots.dll
