@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("reservedslots")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58482a08dc15df4b86ca55cabd53c2e4f4a1b586")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf455a86b05cf7184a524c603c0aa2a99a1c7acc")]
 [assembly: System.Reflection.AssemblyProductAttribute("reservedslots")]
 [assembly: System.Reflection.AssemblyTitleAttribute("reservedslots")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
