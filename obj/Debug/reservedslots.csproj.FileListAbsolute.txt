@@ -10,3 +10,4 @@ C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.dll
 C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\refint\reservedslots.dll
 C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.pdb
 C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\ref\reservedslots.dll
+C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.sourcelink.json
