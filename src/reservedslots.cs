@@ -24,6 +24,7 @@ public class ReservedSlots : BasePlugin
     public FakeConVar<int> css_reserve_maxadmins = new("css_reserve_maxadmins", "Maximum amount of admins to let in the server with reserve type 2", 0);
     public FakeConVar<int> css_reserve_kicktype = new("css_reserve_kicktype", "How to select a client to kick (if appropriate)", 0);
     public FakeConVar<float> css_reserve_check_delay = new("css_reserve_check_delay", "Delay before enforcing reserved slot checks (seconds)", 1.0f);
+    public FakeConVar<int> css_reserve_logs = new("css_reserve_logs", "Logging mode: 0=disabled, 1=console only, 2=console and file", 2);
     public ConVar sv_visiblemaxplayers = null!;
     private const string playerdesignername = "cs_player_controller";
     private const string logprefix = "[ReservedSlots]";
@@ -456,8 +457,19 @@ public class ReservedSlots : BasePlugin
 
     private void LogConnectionMessage(string message)
     {
-        Logger.LogInformation("{LogMessage}", message);
+        int loggingMode = css_reserve_logs.Value;
+
+        if (loggingMode <= 0)
+        {
+            return;
+        }
+
         Server.PrintToConsole(message);
+
+        if (loggingMode >= 2)
+        {
+            Logger.LogInformation("{LogMessage}", message);
+        }
     }
 
 
