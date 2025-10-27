@@ -19,6 +19,7 @@ public class ReservedSlots : BasePlugin
     public override string ModuleDescription => "Provides basic reserved slots";
 
     public FakeConVar<int> css_reserved_slots = new("css_reserved_slots", "Number of reserved player slots", 0);
+    public FakeConVar<int> css_reserve_max_slot = new("css_reserve_max_slot", "Total number of slots to expose before accounting for reserved slots (0 = use server max)", 0);
     public FakeConVar<bool> css_hide_slots = new("css_hide_slots", "If set to 1, reserved slots will be hidden (subtracted from the max slot count)", false);
     public FakeConVar<int> css_reserve_type = new("css_reserve_type", "Method of reserving slots", 0);
     public FakeConVar<int> css_reserve_maxadmins = new("css_reserve_maxadmins", "Maximum amount of admins to let in the server with reserve type 2", 0);
@@ -157,6 +158,13 @@ public class ReservedSlots : BasePlugin
         CheckHiddenSlots();
     }
 
+    [GameEventHandler]
+    public HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
+    {
+        CheckHiddenSlots();
+        return HookResult.Continue;
+    }
+
     public void OnTimedKick(CCSPlayerController player)
     {
         if (!player.IsValid)
@@ -187,7 +195,7 @@ public class ReservedSlots : BasePlugin
         var (playerName, steamId) = GetPlayerIdentity(player);
         var (hasVip, hasBan, flagsText) = GetPermissionSnapshot(player);
         int reserved = css_reserved_slots.Value;
-        int limit = Server.MaxPlayers - reserved;
+        int limit = CalculatePublicSlotLimit(reserved);
         int clients = GetClientCount();
         int type = css_reserve_type.Value;
 
@@ -227,7 +235,7 @@ public class ReservedSlots : BasePlugin
         }
 
         int clients = GetClientCount();
-        int limit = Server.MaxPlayers - reserved;
+        int limit = CalculatePublicSlotLimit(reserved);
         int type = css_reserve_type.Value;
         var (playerName, steamId) = GetPlayerIdentity(player);
         var (hasVip, hasBan, flagsText) = GetPermissionSnapshot(player);
@@ -291,7 +299,7 @@ public class ReservedSlots : BasePlugin
             }
             else if (css_hide_slots.Value)
             {
-                SetVisibleMaxSlots(GetClientCount(), Server.MaxPlayers - value);
+                SetVisibleMaxSlots(GetClientCount(), CalculatePublicSlotLimit(value));
             }
         };
 
@@ -303,7 +311,15 @@ public class ReservedSlots : BasePlugin
             }
             else
             {
-                SetVisibleMaxSlots(GetClientCount(), Server.MaxPlayers - (value ? 1 : 0));
+                SetVisibleMaxSlots(GetClientCount(), CalculatePublicSlotLimit(css_reserved_slots.Value));
+            }
+        };
+
+        css_reserve_max_slot.ValueChanged += (_, _) =>
+        {
+            if (css_hide_slots.Value)
+            {
+                SetVisibleMaxSlots(GetClientCount(), CalculatePublicSlotLimit(css_reserved_slots.Value));
             }
         };
     }
@@ -312,24 +328,35 @@ public class ReservedSlots : BasePlugin
     {
         if (css_hide_slots.Value)
         {
-            SetVisibleMaxSlots(GetClientCount(), Server.MaxPlayers - (css_hide_slots.Value ? 1 : 0));
+            SetVisibleMaxSlots(GetClientCount(), CalculatePublicSlotLimit(css_reserved_slots.Value));
         }
     }
 
     public void SetVisibleMaxSlots(int clients, int limit)
     {
-        int num = clients;
+        int configuredMax = GetConfiguredMaxSlots();
+        int effectiveLimit = Math.Clamp(limit, 0, configuredMax);
+        int visibleSlots = clients < effectiveLimit ? effectiveLimit : clients;
 
-        if (clients == Server.MaxPlayers)
+        if (configuredMax > 0 && clients < configuredMax)
         {
-            num = Server.MaxPlayers;
-        }
-        else if (clients < limit)
-        {
-            num = limit;
+            visibleSlots = Math.Min(visibleSlots, configuredMax);
         }
 
-        sv_visiblemaxplayers.SetValue(num);
+        sv_visiblemaxplayers.SetValue(visibleSlots);
+    }
+
+    private int GetConfiguredMaxSlots()
+    {
+        int configured = css_reserve_max_slot.Value;
+        return configured > 0 ? configured : Server.MaxPlayers;
+    }
+
+    private int CalculatePublicSlotLimit(int reservedSlots)
+    {
+        int maxSlots = GetConfiguredMaxSlots();
+        int effectiveReserved = Math.Clamp(reservedSlots, 0, maxSlots);
+        return maxSlots - effectiveReserved;
     }
 
     public void ResetVisibleMax()
