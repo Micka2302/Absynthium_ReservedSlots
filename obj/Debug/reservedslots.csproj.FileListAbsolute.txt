@@ -11,3 +11,9 @@ C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\refint\reservedslots.dll
 C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.pdb
 C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\ref\reservedslots.dll
 C:\Users\micka\Documents\GitHub\reservedslots\obj\Debug\reservedslots.sourcelink.json
+C:\Users\micka\Documents\GitHub\reservedslots\reservedslots\obj\Release\reservedslots\reservedslots.deps.json
+C:\Users\micka\Documents\GitHub\reservedslots\reservedslots\obj\Release\reservedslots\reservedslots.dll
+C:\Users\micka\Documents\GitHub\reservedslots\reservedslots\obj\Release\reservedslots\reservedslots.pdb
+C:\Users\micka\Documents\GitHub\reservedslots\Release\reservedslots\reservedslots.deps.json
+C:\Users\micka\Documents\GitHub\reservedslots\Release\reservedslots\reservedslots.dll
+C:\Users\micka\Documents\GitHub\reservedslots\Release\reservedslots\reservedslots.pdb

@@ -158,13 +158,6 @@ public class ReservedSlots : BasePlugin
         CheckHiddenSlots();
     }
 
-    [GameEventHandler]
-    public HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
-    {
-        CheckHiddenSlots();
-        return HookResult.Continue;
-    }
-
     public void OnTimedKick(CCSPlayerController player)
     {
         if (!player.IsValid)
@@ -282,9 +275,10 @@ public class ReservedSlots : BasePlugin
             return HookResult.Continue;
         }
 
-        CheckHiddenSlots();
         AdminsList.Remove(player);
         GlobalPlayerTime.TryRemove(player, out _);
+        // Delay the recount so the engine finishes purging the disconnecting player.
+        AddTimer(0.1f, CheckHiddenSlots);
 
         return HookResult.Continue;
     }
