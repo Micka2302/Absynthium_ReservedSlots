@@ -1,0 +1,63 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "v*"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build plugin
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          ./compile.ps1
+
+      - name: Package artifacts
+        id: package
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $zipName = 'Absynthium_ReservedSlots.zip'
+          if ($env:GITHUB_REF -like 'refs/tags/*') {
+            $zipName = "Absynthium_ReservedSlots-$($env:GITHUB_REF_NAME).zip"
+          }
+
+          if (Test-Path $zipName) {
+            Remove-Item $zipName -Force
+          }
+
+          Compress-Archive -Path 'compiled/*' -DestinationPath $zipName -Force
+          "zip_path=$zipName" >> $env:GITHUB_OUTPUT
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Absynthium_ReservedSlots
+          path: ${{ steps.package.outputs.zip_path }}
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.package.outputs.zip_path }}
+          generate_release_notes: true
