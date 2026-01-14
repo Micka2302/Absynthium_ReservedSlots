@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj": {}
+    "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj": {}
   },
   "projects": {
-    "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj": {
+    "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj",
+        "projectUniqueName": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj",
         "projectName": "Absynthium_ReservedSlots",
-        "projectPath": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj",
+        "projectPath": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj",
         "packagesPath": "C:\\Users\\micka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\obj\\",
+        "outputPath": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\micka\\AppData\\Roaming\\NuGet\\NuGet.Config"
