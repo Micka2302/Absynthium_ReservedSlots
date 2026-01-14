@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "CounterStrikeSharp.API/1.0.333": {
+      "CounterStrikeSharp.API/1.0.345": {
         "type": "package",
         "dependencies": {
           "McMaster.NETCore.Plugins": "1.4.0",
@@ -912,14 +912,14 @@
     }
   },
   "libraries": {
-    "CounterStrikeSharp.API/1.0.333": {
-      "sha512": "A+LSdURa3ZFB/lYqZrpddZjuaeH5BEoPZsAaAkjPfv1LsHA3HKteWQDwgbeO4vcvSbsI95Rx++3HZ5HhIf4bPA==",
+    "CounterStrikeSharp.API/1.0.345": {
+      "sha512": "DQzY22+9ZXl79DHWmrPMt9Fxy6/UG2T/HUoZriACZ7lUPGQ0fEID8DWmTOAGKmfHVgy9vrrtwzcYPBJLsBOLaQ==",
       "type": "package",
-      "path": "counterstrikesharp.api/1.0.333",
+      "path": "counterstrikesharp.api/1.0.345",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "counterstrikesharp.api.1.0.333.nupkg.sha512",
+        "counterstrikesharp.api.1.0.345.nupkg.sha512",
         "counterstrikesharp.api.nuspec",
         "lib/net8.0/CounterStrikeSharp.API.dll",
         "lib/net8.0/CounterStrikeSharp.API.runtimeconfig.json",
@@ -2551,7 +2551,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "CounterStrikeSharp.API >= 1.0.333"
+      "CounterStrikeSharp.API >= 1.0.345"
     ]
   },
   "packageFolders": {
@@ -2560,11 +2560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj",
-      "projectName": "reservedslots",
-      "projectPath": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj",
+      "projectUniqueName": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj",
+      "projectName": "Absynthium_ReservedSlots",
+      "projectPath": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj",
       "packagesPath": "C:\\Users\\micka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\obj\\",
+      "outputPath": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\micka\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2599,7 +2599,7 @@
         "dependencies": {
           "CounterStrikeSharp.API": {
             "target": "Package",
-            "version": "[1.0.333, )"
+            "version": "[1.0.345, )"
           }
         },
         "imports": [

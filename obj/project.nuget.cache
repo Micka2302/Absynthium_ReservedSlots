@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "q8HZnkmEqYg=",
+  "dgSpecHash": "6PADCKnApVA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\micka\\Documents\\GitHub\\reservedslots\\reservedslots.csproj",
+  "projectFilePath": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\micka\\.nuget\\packages\\counterstrikesharp.api\\1.0.333\\counterstrikesharp.api.1.0.333.nupkg.sha512",
+    "C:\\Users\\micka\\.nuget\\packages\\counterstrikesharp.api\\1.0.345\\counterstrikesharp.api.1.0.345.nupkg.sha512",
     "C:\\Users\\micka\\.nuget\\packages\\mcmaster.netcore.plugins\\1.4.0\\mcmaster.netcore.plugins.1.4.0.nupkg.sha512",
     "C:\\Users\\micka\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\micka\\.nuget\\packages\\microsoft.dotnet.apicompat.task\\8.0.203\\microsoft.dotnet.apicompat.task.8.0.203.nupkg.sha512",
