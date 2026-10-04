@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6PADCKnApVA=",
+  "dgSpecHash": "2xmtAKLqMpo=",
   "success": true,
   "projectFilePath": "C:\\Users\\micka\\Documents\\GitHub\\Absynthium_ReservedSlots\\Absynthium_ReservedSlots.csproj",
   "expectedPackageFiles": [
@@ -52,9 +52,9 @@
     "C:\\Users\\micka\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\micka\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\micka\\.nuget\\packages\\tomlyn\\0.19.0\\tomlyn.0.19.0.nupkg.sha512",
-    "C:\\Users\\micka\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\micka\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\micka\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
+    "C:\\Users\\micka\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.23\\microsoft.netcore.app.ref.8.0.23.nupkg.sha512",
+    "C:\\Users\\micka\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.23\\microsoft.windowsdesktop.app.ref.8.0.23.nupkg.sha512",
+    "C:\\Users\\micka\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.23\\microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512"
   ],
   "logs": []
 }

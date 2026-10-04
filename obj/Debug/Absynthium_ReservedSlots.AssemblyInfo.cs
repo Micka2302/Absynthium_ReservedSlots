@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Absynthium_ReservedSlots")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+505d021b57020d950e58a1ebe50ecdf91f0f4e0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb32a3efb38ff0ede2e3c7d4dd83fb4bfaa48a0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Absynthium_ReservedSlots")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Absynthium_ReservedSlots")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
